@@ -1,11 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/design.css";
 import { DropdownButton, Dropdown, Form } from "react-bootstrap";
 
 
 const Design = () => {
+
+    const initial_values = { num_1: "", operator: "", num_2: "" };
+    const [formValues, setFormValues] = useState(initial_values);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
+    const handleChange = (e) => {
+        // console.log(e.target.name);
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+        // console.log(formValues);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // setFormErrors(validate(formValues));
+        setIsSubmit(true);
+        console.log('values are: ', formValues)
+    };
+
+    useEffect(() => {
+        console.log("Errors are : ", formErrors);
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValues);
+        }
+    }, [formErrors]);
+
     return (
-        <form >
+        <form onSubmit={handleSubmit}>
             <div className="container d-flex justify-content-center py-5">
                 <div className="card mt-4 col-md-8 shadow card-style">
                     <div className="card-title mt-3 ">
@@ -20,13 +47,15 @@ const Design = () => {
                                 className="form-control text-center"
                                 type="number"
                                 placeholder="num-1"
-                                name="num-1"
+                                name="num_1"
+                                value={formValues.num_1}
+                                onChange={handleChange}
                             />
                         </div>
 
                         <div className="mb-4" >
                             <label className="text-start col-form-label">Operator: </label>
-                            <select className="form-select text-center">
+                            <select className="form-select text-center" onChange={handleChange} name="operator">
                                 <option disabled defaultValue >Choose An Emoji</option>
                                 <option value="addition">&#x1F47D; Addition</option>
                                 <option value="subtraction">&#x1F480; Subtraction</option>
@@ -39,9 +68,11 @@ const Design = () => {
                             <label className="text-start col-form-label">Num-2: </label>
                             <input
                                 className="form-control text-center"
-                                type="text"
+                                type="number"
                                 placeholder="Num-2"
-                                name="num-2"
+                                name="num_2"
+                                value={formValues.num_2}
+                                onChange={handleChange}
                             />
                         </div>
 
