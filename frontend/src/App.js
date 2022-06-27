@@ -1,10 +1,10 @@
 import './assets/App.css';
-
+import Design from './components/Design';
 
 function App() {
   return (
     <div className="all-bg">
-      Hello world!!!
+      <Design />
     </div>
   );
 }
