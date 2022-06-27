@@ -1,0 +1,10 @@
+.all-bg{
+  background-color: #1fc8db;
+  background-image: linear-gradient(
+    140deg,
+    #ab3f 0%,
+    #bc70a4 50%,
+    gray 75%
+  );
+  min-height: 100vh;
+}
