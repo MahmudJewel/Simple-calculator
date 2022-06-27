@@ -50,17 +50,18 @@ const Design = () => {
                                 name="num_1"
                                 value={formValues.num_1}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
 
                         <div className="mb-4" >
                             <label className="text-start col-form-label">Operator: </label>
-                            <select className="form-select text-center" onChange={handleChange} name="operator">
-                                <option disabled defaultValue >Choose An Emoji</option>
-                                <option value="addition">&#x1F47D; Addition</option>
-                                <option value="subtraction">&#x1F480; Subtraction</option>
-                                <option value="multiplication">&#x1F47B; Multiplication</option>
-                                <option value="division">&#x1F631; Division</option>
+                            <select className="form-select text-center" onChange={handleChange} name="operator" required>
+                                <option defaultValue >Choose An Emoji</option>
+                                <option value="add">&#x1F47D; Addition</option>
+                                <option value="sub">&#x1F480; Subtraction</option>
+                                <option value="mul">&#x1F47B; Multiplication</option>
+                                <option value="div">&#x1F631; Division</option>
                             </select>
                         </div>
 
@@ -73,6 +74,7 @@ const Design = () => {
                                 name="num_2"
                                 value={formValues.num_2}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
 
