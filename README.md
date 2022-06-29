@@ -61,7 +61,7 @@ It is a calculation based project. Front-end will show the UI where a form is gi
 ### initial page
 ![Category List](https://github.com/MahmudJewel/Simple-calculator/blob/development/screenshot/cal-1.jpg)
 
-### Subtracttion mode
+### Addition mode
 ![Category List](https://github.com/MahmudJewel/Simple-calculator/blob/development/screenshot/cal-2.jpg)
 
 ### Division mode
