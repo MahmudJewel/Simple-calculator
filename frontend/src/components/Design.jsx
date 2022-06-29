@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../assets/design.css";
-import { DropdownButton, Dropdown, Form } from "react-bootstrap";
-
+import axios from "axios";
 
 const Design = () => {
 
@@ -9,6 +8,7 @@ const Design = () => {
     const [formValues, setFormValues] = useState(initial_values);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [result, setResult] = useState(null);
 
     const handleChange = (e) => {
         // console.log(e.target.name);
@@ -17,19 +17,36 @@ const Design = () => {
         // console.log(formValues);
     };
 
+    const fetchData = async () => {
+        try {
+            const res = await axios.get(`http://127.0.0.1:8000/api/calculate?num_1=${formValues.num_1}&num_2=${formValues.num_2}&operator=${formValues.operator}`);
+            setResult(res.data)
+            // console.log('fetch data->',res)
+            console.log('result-> ',result);
+        } catch (error) {
+            console.log('Error-> ',error)
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // setFormErrors(validate(formValues));
         setIsSubmit(true);
         console.log('values are: ', formValues)
+        fetchData()
+        // console.log('num_1 are: ', formValues.num_1)
     };
 
     useEffect(() => {
-        console.log("Errors are : ", formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
+        // console.log("Errors are : ", formErrors);
+        // if (Object.keys(formErrors).length === 0 && isSubmit) {
+        //     console.log(formValues);
+        // }
+        if (isSubmit){
+            console.log('submit: ', isSubmit)
+            fetchData()
         }
-    }, [formErrors]);
+    }, [result]);
 
     return (
         <form onSubmit={handleSubmit}>
@@ -80,6 +97,10 @@ const Design = () => {
 
                         <div className="text-center">
                             <button className="btn btn-success">Submit</button>
+                        </div>
+                        <br /><br />
+                        <div className="text-center">
+                            Result is: {result}
                         </div>
                     </div>
                 </div>
