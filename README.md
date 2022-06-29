@@ -56,3 +56,13 @@ $ npm start
 
 # Project Description:
 It is a calculation based project. Front-end will show the UI where a form is given to submit. The form has 3 field, two operands and one operator. After submitting, it will calculate according to operator on back-end and fetch the results.
+
+# Screenshot
+### initial page
+![Category List](https://github.com/MahmudJewel/Simple-calculator/blob/development/screenshot/cal-1.jpg)
+
+### Subtracttion mode
+![Category List](https://github.com/MahmudJewel/Simple-calculator/blob/development/screenshot/cal-2.jpg)
+
+### Division mode
+![Category List](https://github.com/MahmudJewel/Simple-calculator/blob/development/screenshot/cal-3.jpg)
