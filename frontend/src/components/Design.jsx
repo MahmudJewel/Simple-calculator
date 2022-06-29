@@ -6,7 +6,6 @@ const Design = () => {
 
     const initial_values = { num_1: "", operator: "", num_2: "" };
     const [formValues, setFormValues] = useState(initial_values);
-    const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const [result, setResult] = useState(null);
 
@@ -17,33 +16,31 @@ const Design = () => {
         // console.log(formValues);
     };
 
+    //------------- get data from backend --------------------------------
     const fetchData = async () => {
         try {
             const res = await axios.get(`http://127.0.0.1:8000/api/calculate?num_1=${formValues.num_1}&num_2=${formValues.num_2}&operator=${formValues.operator}`);
             setResult(res.data)
-            console.log('fetch data->',res)
+            // console.log('fetch data->', res)
             // console.log('result-> ',result);
         } catch (error) {
-            console.log('Error-> ',error)
+            console.log('Error-> ', error)
         }
     }
-
+    //------------- submit the form --------------------------------
     const handleSubmit = (e) => {
         e.preventDefault();
         // setFormErrors(validate(formValues));
         setIsSubmit(true);
-        console.log('values are: ', formValues)
+        // console.log('from handle: ', isSubmit)
+        // console.log('values are: ', formValues)
         fetchData()
         // console.log('num_1 are: ', formValues.num_1)
     };
 
     useEffect(() => {
-        // console.log("Errors are : ", formErrors);
-        // if (Object.keys(formErrors).length === 0 && isSubmit) {
-        //     console.log(formValues);
-        // }
-        if (isSubmit){
-            console.log('submit: ', isSubmit)
+        if (isSubmit) {
+            // console.log('from useeffect: ', isSubmit)
             fetchData()
         }
     }, [result]);
@@ -53,7 +50,7 @@ const Design = () => {
             <div className="container d-flex justify-content-center py-5">
                 <div className="card mt-4 col-md-8 shadow card-style">
                     <div className="card-title mt-3 ">
-                        <h2 className="text-success text-center"> Emoji-Calculator </h2>
+                        <h2 className="text-success text-center"> Emoji-Based Calculator </h2>
                     </div>
 
                     <div className="card-body col-md-8 m-auto">
@@ -99,9 +96,12 @@ const Design = () => {
                             <button className="btn btn-success">Submit</button>
                         </div>
                         <br /><br />
-                        <div className="text-center">
-                            Result is: {result}
-                        </div>
+
+                        {/* ------------- Show result if submitted -------------------------------- */}
+                        {isSubmit && <div className="text-center">
+                            Result: <b>{result}</b>
+                            <br /><br />
+                        </div>}
                     </div>
                 </div>
             </div>
