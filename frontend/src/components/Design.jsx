@@ -21,8 +21,8 @@ const Design = () => {
         try {
             const res = await axios.get(`http://127.0.0.1:8000/api/calculate?num_1=${formValues.num_1}&num_2=${formValues.num_2}&operator=${formValues.operator}`);
             setResult(res.data)
-            // console.log('fetch data->',res)
-            console.log('result-> ',result);
+            console.log('fetch data->',res)
+            // console.log('result-> ',result);
         } catch (error) {
             console.log('Error-> ',error)
         }
