@@ -46,3 +46,13 @@ Once `pip` has finished downloading the dependencies:
 (venv)$ python manage.py migrate
 (venv)$ python manage.py runserver
 ```
+
+### Front-end
+```sh
+$ cd frontend
+$ npm install
+$ npm start
+```
+
+# Project Description:
+It is a calculation based project. Front-end will show the UI where a form is given to submit. The form has 3 field, two operands and one operator. After submitting, it will calculate according to operator on back-end and fetch the results.
