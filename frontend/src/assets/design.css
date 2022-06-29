@@ -1,3 +1,11 @@
 .card-style {
-    border-radius: 25px;
-  }
+  border-radius: 25px;
+  /* background-color: aqua; */
+  background-color: white;
+}
+
+.result {
+  background-color: beige;
+  padding-top: 20px;
+  border-radius: 25px;
+}

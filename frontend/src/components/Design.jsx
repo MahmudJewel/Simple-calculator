@@ -48,7 +48,7 @@ const Design = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="container d-flex justify-content-center py-5">
-                <div className="card mt-4 col-md-8 shadow card-style">
+                <div className="card-style mt-4 col-md-8 shadow ">
                     <div className="card-title mt-3 ">
                         <h2 className="text-success text-center"> Emoji-Based Calculator </h2>
                     </div>
@@ -56,11 +56,11 @@ const Design = () => {
                     <div className="card-body col-md-8 m-auto">
 
                         <div className="mb-4">
-                            <label className="text-start col-form-label">Num-1: </label>
+                            <label className="text-start col-form-label">Number-1: </label>
                             <input
                                 className="form-control text-center"
                                 type="number"
-                                placeholder="num-1"
+                                placeholder="Enter any number"
                                 name="num_1"
                                 value={formValues.num_1}
                                 onChange={handleChange}
@@ -80,11 +80,11 @@ const Design = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="text-start col-form-label">Num-2: </label>
+                            <label className="text-start col-form-label">Number-2: </label>
                             <input
                                 className="form-control text-center"
                                 type="number"
-                                placeholder="Num-2"
+                                placeholder="Enter any number"
                                 name="num_2"
                                 value={formValues.num_2}
                                 onChange={handleChange}
@@ -98,7 +98,7 @@ const Design = () => {
                         <br /><br />
 
                         {/* ------------- Show result if submitted -------------------------------- */}
-                        {isSubmit && <div className="text-center">
+                        {isSubmit && <div className="text-center result">
                             Result: <b>{result}</b>
                             <br /><br />
                         </div>}
