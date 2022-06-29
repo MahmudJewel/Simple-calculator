@@ -22,7 +22,7 @@ class CalculatorViews(APIView):
                 result=num_1 * num_2
             elif(operator=='div'):
                 if num_2==0:
-                    result='undefined'
+                    return Response('undefined')
                 else:
                     result=num_1 / num_2
         # result=round(result)
