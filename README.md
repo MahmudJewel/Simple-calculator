@@ -22,3 +22,27 @@
 ####  Frameworks
 	React (18.2.0)
 
+# Setup
+The first thing to do is to clone the repository:
+```sh
+$ git clone https://github.com/MahmudJewel/Simple-calculator.git
+```
+### Back-end
+Create a virtual environment to install dependencies in and activate it:
+```sh
+$ cd backend
+$ python -m venv venv
+$ source venv/bin/activate
+```
+Then install the dependencies:
+```sh
+(venv)$ pip install -r requirements.txt
+```
+Note the `(venv)` in front of the prompt. This indicates that this terminal
+session operates in a virtual environment set up by `virtualenv2`.
+
+Once `pip` has finished downloading the dependencies:
+```sh
+(venv)$ python manage.py migrate
+(venv)$ python manage.py runserver
+```
